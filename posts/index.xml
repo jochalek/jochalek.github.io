@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Justin Ochalek</title>
-    <link>https://jochalek.github.io/</link>
-    <description>Recent content on Justin Ochalek</description>
+    <title>Posts on Justin Ochalek</title>
+    <link>https://jochalek.github.io/posts/</link>
+    <description>Recent content in Posts on Justin Ochalek</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright Year, Your Name</copyright>
-    <lastBuildDate>Tue, 27 Oct 2020 14:38:30 +0000</lastBuildDate><atom:link href="https://jochalek.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Oct 2020 14:38:30 +0000</lastBuildDate><atom:link href="https://jochalek.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
       <link>https://jochalek.github.io/posts/my-first-post/</link>
