@@ -24,7 +24,7 @@
       
       <guid>https://jochalek.github.io/posts/bayesian/</guid>
       <description>Initialize the python session to be used in SRC blocks Use the same &amp;ldquo;:session&amp;rdquo; in each python source block to maintain the same environment
-(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python t))) (pyvenv-activate &amp;#34;~/path/to/environment/.venv&amp;#34;) Python blocks from scipy.stats import binom x = [1] print(1-binom.cdf(1, 7, (1/5))) 1 k = 1, n = 12, p = 1/10
+(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python t))) (pyvenv-activate &amp;#34;~/path/to/environment/.venv&amp;#34;) Python blocks from scipy.stats import binom print(1-binom.cdf(1, 7, (1/5))) 0.42328319999999986 1 k = 1, n = 12, p = 1/10
 2 16 ways
 3 0.0004548552879040868
 4 0.2752512000000002
