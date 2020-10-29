@@ -23,12 +23,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jochalek.github.io/posts/bayesian/</guid>
-      <description>Initialize the python session to be used in SRC blocks Use the same &amp;ldquo;:session&amp;rdquo; in each python source block to maintain the same environment
-(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python t))) (pyvenv-activate &amp;#34;~/path/to/environment/.venv&amp;#34;) Python blocks from scipy.stats import binom print(1-binom.cdf(1, 7, (1/5))) 0.42328319999999986 1 k = 1, n = 12, p = 1/10
+      <description>:header-args:python: :session python :header-args:R: :session R :header-args:julia: :session julia :header-args: :results output :exports both :eval never-export
+Initialize the python session to be used in SRC blocks Use the same &amp;ldquo;:session&amp;rdquo; in each python source block to maintain the same environment
+(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python t))) (pyvenv-activate &amp;#34;~/path/to/environment/.venv&amp;#34;) Python blocks from scipy.stats import binom print(1-binom.cdf(1, 7, (1/5))) 1 k = 1, n = 12, p = 1/10
 2 16 ways
-3 0.0004548552879040868
-4 0.2752512000000002
-5 0.1877066233635499 More likely to get a job with just 7 interviews while not tired.</description>
+3 0.0004548552879040868</description>
     </item>
     
   </channel>
