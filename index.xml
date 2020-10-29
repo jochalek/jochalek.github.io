@@ -17,5 +17,20 @@
       <description>The title And the body.</description>
     </item>
     
+    <item>
+      <title>Using Python Math with Bayesian statistics just for fun</title>
+      <link>https://jochalek.github.io/posts/bayesian/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jochalek.github.io/posts/bayesian/</guid>
+      <description>(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((python t))) from scipy.stats import binom x = [1] print(1-binom.cdf(1, 7, (1/5))) 1 k = 1, n = 12, p = 1/10
+2 16 ways
+3 0.0004548552879040868
+4 0.2752512000000002
+5 0.1877066233635499 More likely to get a job with just 7 interviews while not tired.
+import statistics as stats A = [2, 4, 6] B = stats.mean(A) print(B) th pyvenv I put
+(pyvenv-activate &amp;#34;~/src/moses-sk/.venv&amp;#34;) at the top, and then just keep the same :session name in python blocks</description>
+    </item>
+    
   </channel>
 </rss>
