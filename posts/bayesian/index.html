@@ -78,11 +78,14 @@
 </header>
 <div class="container">
     <div class="pl-sm-4 ml-sm-5">
-        <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(org-babel-do-load-languages
+        <h2 id="initialize-the-python-session-to-be-used-in-src-blocks">Initialize the python session to be used in SRC blocks</h2>
+<p>Use the same &ldquo;:session&rdquo; in each python source block to maintain the same environment</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(org-babel-do-load-languages
   <span style="color:#e6db74">&#39;org-babel-load-languages</span>
    <span style="color:#f92672">&#39;</span>((python <span style="color:#66d9ef">t</span>)))
-
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> binom
+(pyvenv-activate <span style="color:#e6db74">&#34;~/path/to/environment/.venv&#34;</span>)
+</code></pre></div><h2 id="python-blocks">Python blocks</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> binom
 x <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>]
 <span style="color:#66d9ef">print</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>binom<span style="color:#f92672">.</span>cdf(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">7</span>, (<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">5</span>)))
 
@@ -103,14 +106,11 @@ A <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <s
 B <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>mean(A)
 <span style="color:#66d9ef">print</span>(B)
 
-</code></pre></div><p>th pyvenv I put</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pyvenv-activate <span style="color:#e6db74">&#34;~/src/moses-sk/.venv&#34;</span>)
-</code></pre></div><p>at the top, and then just keep the same :session name in python blocks</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  <span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</code></pre></div><h2 id="r-blocks">R blocks</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">pbinom</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">5</span>,lower.tail <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#a6e22e">pbinom</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">5</span>,lower.tail <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
-
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">
+</code></pre></div><h2 id="julia-blocks">Julia blocks</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">
 
 </code></pre></div>
     </div>
