@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-    <title>Learning Python, R, and Julia with Bayesian statistics Stats Setupfile</title>
+    <title>Learning Python, R, and Julia with Bayesian statistics</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
@@ -72,33 +72,23 @@
     <div class="pl-sm-4 ml-sm-5">
         <h2 id="why-do-this">Why do this?</h2>
 <p>It has been more than 10 years since I learned statistics. In order to brush up on the subject I have been working through Will Kurt&rsquo;s aptly named <strong>Bayesian Statistics the Fun Way</strong>. I want to learn a bit of Python, R, and Julia while I&rsquo;m at it.</p>
-<p>Let&rsquo;s pretend I receive 12 interview invitations for medical school, but I get a lot of anxiety about being interviewed. I am so anxious about it that I only want to attend enough interviews to have a good chance of getting two offers. I&rsquo;ve got a lot of social anxiety, so a 20% chance of getting two admission offers is good enough for me. Based off of my MCAT score, I have a 10% chance of getting accepted after an interview. It looks like if I attent nine interviews, I will have a 22.5% of getting into two schools.</p>
+<p>Let&rsquo;s pretend I receive 12 interview invitations for medical school, but I get a lot of anxiety about being interviewed. I am so anxious about it that I only want to attend enough interviews to have a good chance of getting two offers. I&rsquo;ve got a lot of social anxiety, so a 20% chance of getting two admission offers is good enough for me. Based off of my MCAT score, I have a 10% chance of getting accepted after an interview. It looks like if I attend nine interviews, I will have a 22.5% of getting into two schools.</p>
 <p>The book makes learning statistics easy, but don&rsquo;t take my word for it&hellip;</p>
 <p>‘<a href="https://nostarch.com/learnbayes/">https://nostarch.com/learnbayes/</a>’</p>
 <h2 id="python">Python</h2>
-<p>In</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">scipy.stats</span> <span style="color:#069;font-weight:bold">import</span> binom
 <span style="color:#069;font-weight:bold">print</span>(<span style="color:#f60">1</span><span style="color:#555">-</span>binom<span style="color:#555">.</span>cdf(<span style="color:#f60">1</span>, <span style="color:#f60">9</span>, (<span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">10</span>)))
 
 </code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0.22515902199999993
-</code></pre></div><p>Out</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0.22515902199999993
 </code></pre></div><h2 id="r">R</h2>
-<p>In</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#c0f">pbinom</span>(<span style="color:#f60">1</span>,<span style="color:#f60">9</span>,<span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">10</span>,lower.tail <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">FALSE</span>)
 
 </code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[1] 0.225159
-</code></pre></div><p>Out</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[1] 0.225159
 </code></pre></div><h2 id="julia">Julia</h2>
-<p>In</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#069;font-weight:bold">using</span> Distributions
 <span style="color:#f60">1</span><span style="color:#555">-</span>cdf(Binomial(<span style="color:#f60">9</span>, <span style="color:#f60">1</span><span style="color:#555">/</span><span style="color:#f60">10</span>), <span style="color:#f60">1</span>)
 
 </code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">
-0.22515902200000015
-</code></pre></div><p>Out</p>
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">
 0.22515902200000015
 </code></pre></div>
     </div>
