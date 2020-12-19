@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jochalek.github.io/categories/</loc>
+    <loc>https://jochalek.github.io/blog/</loc>
   </url>
   
   <url>
@@ -11,11 +11,15 @@
   </url>
   
   <url>
-    <loc>https://jochalek.github.io/posts/bayesian/</loc>
+    <loc>https://jochalek.github.io/posts/1/01/learning-python-r-and-julia-with-bayesian-statistics/</loc>
   </url>
   
   <url>
     <loc>https://jochalek.github.io/posts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jochalek.github.io/series/</loc>
   </url>
   
   <url>

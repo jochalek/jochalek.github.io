@@ -6,13 +6,17 @@
     <description>Recent content on Justin Ochalek</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2020, Justin Ochalek</copyright><atom:link href="https://jochalek.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    
+	<atom:link href="https://jochalek.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Learning Python, R, and Julia with Bayesian statistics</title>
-      <link>https://jochalek.github.io/posts/bayesian/</link>
+      <link>https://jochalek.github.io/posts/1/01/learning-python-r-and-julia-with-bayesian-statistics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jochalek.github.io/posts/bayesian/</guid>
+      <guid>https://jochalek.github.io/posts/1/01/learning-python-r-and-julia-with-bayesian-statistics/</guid>
       <description>Why do this? It has been more than 10 years since I learned statistics. In order to brush up on the subject I have been working through Will Kurt&amp;rsquo;s aptly named Bayesian Statistics the Fun Way. I want to learn a bit of Python, R, and Julia while I&amp;rsquo;m at it.
 Let&amp;rsquo;s pretend I receive 12 interview invitations for medical school, but I get a lot of anxiety about being interviewed.</description>
     </item>
