@@ -1,1 +1,49 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/libs/highlight/github.min.css"> <link rel=stylesheet  href="/css/franklin.css"> <link rel=stylesheet  href="/css/basic.css"> <link rel=icon  href="/assets/favicon.png"> <title>A Perceptron from scratch with Julia</title> <header> <div class=blog-name ><a href="/">Justin Ochalek</a></div> <nav> <ul> <li><a href="/">Home</a> <li><a href="/blog">Blog</a> <li><a href="/menu1">About</a> </ul> <img src="/assets/hamburger.svg" id=menu-icon > </nav> </header> <div class=franklin-content ><h1 id=a_perceptron_from_scratch_with_julia ><a href="#a_perceptron_from_scratch_with_julia" class=header-anchor >A Perceptron from scratch with Julia</a></h1> <div class=page-foot > <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Jusin Ochalek. Last modified: May 30, 2022. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div>
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/libs/highlight/github.min.css"> <link rel=stylesheet  href="/css/franklin.css"> <link rel=stylesheet  href="/css/basic.css"> <link rel=icon  href="/assets/favicon.png"> <title>A Perceptron from scratch with Julia</title> <header> <div class=blog-name ><a href="/">Justin Ochalek</a></div> <nav> <ul> <li><a href="/">Home</a> <li><a href="/blog">Blog</a> <li><a href="/menu1">About</a> </ul> <img src="/assets/hamburger.svg" id=menu-icon > </nav> </header> <div class=franklin-content ><h1 id=a_perceptron_from_scratch_with_julia ><a href="#a_perceptron_from_scratch_with_julia" class=header-anchor >A Perceptron from scratch with Julia</a></h1> <h2 id=implementing_a_perceptron_learning_algorithm_in_julia ><a href="#implementing_a_perceptron_learning_algorithm_in_julia" class=header-anchor >Implementing a perceptron learning algorithm in Julia</a></h2> <pre><code class="julia hljs"><span class=hljs-string >&quot;&quot;&quot;
+    Perceptron(X)
+
+Create a perceptron classifier object which holds the parameters `weight`, `bias`, and activation `σ`.
+
+The input `X` is the feature matrix `m x n` where features are listed in rows `m` and observations or samples are by column `n`.
+
+# Parameters
+- `weight`: Learnable weight
+- `bias`: Learnable bias
+- `σ`: the activation function
+&quot;&quot;&quot;</span>
+<span class=hljs-keyword >mutable struct</span> Perceptron
+    weight
+    bias
+    σ
+    <span class=hljs-keyword >function</span> Perceptron(X)
+        weight = reshape((randn(size(X)[<span class=hljs-number >1</span>]) / <span class=hljs-number >100</span>), <span class=hljs-number >1</span>, :)
+        bias = <span class=hljs-number >0.</span>
+        σ(net_input) = net_input[<span class=hljs-number >1</span>] &gt;= <span class=hljs-number >0</span> ? <span class=hljs-number >1</span> : <span class=hljs-number >0</span>
+        new(weight, bias, σ)
+    <span class=hljs-keyword >end</span>
+<span class=hljs-keyword >end</span>
+
+<span class=hljs-comment ># Overload call to make an instance of the Perceptron act like a function that predicts a class label.</span>
+(ppn::Perceptron)(X) = ppn.σ(ppn.weight * reshape(X, :, <span class=hljs-number >1</span>).+ ppn.bias)</code></pre> <p>This turns out looking almost exactly like Flux.jl&#39;s Dense&#40;&#41; layer, with the major difference being the perceptron&#39;s activation function &#40;and fewer type declarations&#41;. I fiddled with this for a while before figuring that out, but the up side is I feel pretty good about reading Julia package source code. That&#39;s a solid stepping stone since they say Julia source &quot;is Julia all the way down&quot;, and many usable Julia packages have room to grow with regard to their documentation.</p> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> MLDatasets
+<span class=hljs-keyword >using</span> DataFrames</code></pre> <p>This is snippet loads the classic Iris dataset and &quot;one-hot encodes&quot; the target. In this case I&#39;m just going to train a perceptron to classify &quot;setosa&quot; vs &quot;not setosa&quot;.</p> <pre><code class="julia hljs">X, y = Iris(as_df=<span class=hljs-literal >false</span>)[:]
+
+Y = zeros(length(y))
+<span class=hljs-keyword >for</span> obs <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:length(y)
+    <span class=hljs-keyword >if</span> y[obs] == <span class=hljs-string >&quot;Iris-setosa&quot;</span>
+        Y[obs] = <span class=hljs-number >1</span>
+    <span class=hljs-keyword >end</span>
+<span class=hljs-keyword >end</span></code></pre> <p>This snippet instantiates a Perceptron object and trains it for 10 iterations, updating all of the weights in the weight vector once for each sample. In future I&#39;ll reorganize this into a function.</p> <pre><code class="julia hljs">ppn = Perceptron(X)
+η= <span class=hljs-number >0.1</span>
+n_iter = <span class=hljs-number >10</span>
+<span class=hljs-keyword >local</span> errors_ = []
+
+<span class=hljs-keyword >for</span> epoch <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:n_iter
+    errors = <span class=hljs-number >0</span>
+    <span class=hljs-keyword >for</span> i <span class=hljs-keyword >in</span> <span class=hljs-number >1</span>:<span class=hljs-number >150</span>
+        update = η * (Y[i] - ppn(X[:, i]))
+        ppn.weight += update * reshape(X[:, i], <span class=hljs-number >1</span>, :)
+        ppn.bias += update
+        errors += <span class=hljs-built_in >Int</span>(update != <span class=hljs-number >0.0</span>)
+    <span class=hljs-keyword >end</span>
+    errors_ = [errors_; errors]
+<span class=hljs-keyword >end</span></code></pre> <p>Plot the errors collected in each epoch. The perceptron converges after 4 epochs. Pretty cool.</p> <pre><code class="julia hljs"><span class=hljs-keyword >using</span> Plots
+plot(errors_, xlabel = <span class=hljs-string >&quot;Epochs&quot;</span>, ylabel = <span class=hljs-string >&quot;Number of updates&quot;</span>, shape = :circle, legend = <span class=hljs-literal >false</span>)</code></pre> <img src="/assets/blog/post1/code/ppn.svg" alt=""> <h2 id=machine_learning_with_julia ><a href="#machine_learning_with_julia" class=header-anchor >Machine Learning with Julia</a></h2> <p>I first picked up <a href="https://sebastianraschka.com/">Dr. Sebastian Raschka</a>&#39;s excellent book, <a href="https://www.packtpub.com/product/python-machine-learning-third-edition/9781789955750">Python Machine Learning</a>, after finishing Dr. Andrew Ng&#39;s introduction to Machine Learning Coursera course in 2020. The book was naturally the next step to learn more about my new interest. It has the perfect mix of mathematics and python for a beginner in both fields. I bought the second edition of the book, which was based on Tensorflow 1, and read through much of it while still trying to learn python on the side as a first programming language. I even submitted a Kaggle notebook applying a random forest model to the classic UCI Cleveland Heart Disease dataset before medical school took my attention away from machine learning.</p> <p>I&#39;m not satisfied with what I&#39;ve learned so far. In medical school we try to learn a lot of stuff, and we try a lot of things to &quot;make it stick&quot;. To learn it once and for all. In reality, what sticks are the things we revisit over and over in the clinic. Nevertheless, I will attempt here to make all the machine learning knowledge I&#39;ve learned &quot;stick&quot; by working through Dr. Sebastian Raschka&#39;s newest ML book, <a href="https://www.packtpub.com/product/machine-learning-with-pytorch-and-scikit-learn/9781801819312">Machine Learning with PyTorch and Scikit-Learn</a>, but instead of rewriting the book&#39;s example code in a jupyter notebook I am going to do it in Julia and learn two new things at the same time.</p> <p>I highly recommend Machine Learning with PyTorch and Scikit-Learn. The example python for the book is hosted publicly on <a href="https://github.com/rasbt/machine-learning-book">github</a>.</p> <div class=page-foot > <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Jusin Ochalek. Last modified: May 31, 2022. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>. </div> </div>
