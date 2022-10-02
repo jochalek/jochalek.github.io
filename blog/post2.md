@@ -125,7 +125,7 @@ I run the Notebook with internet access first to see if it tries to download any
 See my [submission](https://www.kaggle.com/code/justinochalek/baseline-fastai-julia) and [competition repo](https://github.com/jochalek/HuBMAP) to see how I did it. Generally I followed the above. This was my first Kaggle submission. Although it ended with me at the back of the pack I learned a lot and I cannot wait to start again.
 
 
-## TDLR;
+## TLDR;
 
 1.  Pack your source code into a tarball.
 2.  Download the Julia binary tarball.
