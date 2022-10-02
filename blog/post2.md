@@ -1,6 +1,8 @@
 @def title = "Julia on Kaggle"
 @def tags = ["Machine Learning", "Julia", "Kaggle"]
 @def published = "2 October 2022"
+@def rss_description = "Competing on Kaggle with Julia."
+
 # Julia on Kaggle
 
 \toc

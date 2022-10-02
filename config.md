@@ -16,6 +16,7 @@ generate_rss = true
 website_title = "Justin Ochalek"
 website_descr = "Justin's personal website"
 website_url   = "https://www.justinochalek.com/"
+rss_full_content = true
 +++
 
 <!--
