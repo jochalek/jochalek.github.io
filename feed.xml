@@ -33,7 +33,7 @@
   
   <content:encoded>
     <![CDATA[  <h1 id="julia_on_kaggle">Julia on Kaggle</h1>
-<div class="franklin-toc"><ol><li>Setup</li><li>Docker</li><li>Kaggle Private Datasets</li><li>Run the Notebook</li><li>Final thoughts</li><li>TDLR;</li></ol></div>
+<div class="franklin-toc"><ol><li>Setup</li><li>Docker</li><li>Kaggle Private Datasets</li><li>Run the Notebook</li><li>Final thoughts</li><li>TLDR;</li></ol></div>
 <h1 id="background">Background</h1>
 <p>Julia is not on Kaggle. </p>
 <p>There are <a href="https://www.kaggle.com/code/marketneutral/julia-live-on-kaggle">a few ways</a> to get Julia into a Jupyter notebook on the cloud. The tricky part is using Julia for a Code Competition where submissions run without internet access. This problem is half solved by <a href="https://www.kaggle.com/docs/datasets#creating-a-dataset">private Kaggle Datasets</a>. But how to organize your code as a Kaggle Dataset?</p>
@@ -104,7 +104,7 @@ mv dotjulia.tar.gz dotjulia# The saved model can be uploaded as .bson or .jld2 d
 <p>I run the Notebook with internet access first to see if it tries to download any Artifacts. If it does I add them as dependencies to my Inference.jl package and go back to the Docker step to repackage and reupload everything. If it works, turn off internet access and save the Notebook version. Then submit&#33;</p>
 <h2 id="final_thoughts">Final thoughts</h2>
 <p>See my <a href="https://www.kaggle.com/code/justinochalek/baseline-fastai-julia">submission</a> and <a href="https://github.com/jochalek/HuBMAP">competition repo</a> to see how I did it. Generally I followed the above. This was my first Kaggle submission. Although it ended with me at the back of the pack I learned a lot and I cannot wait to start again.</p>
-<h2 id="tdlr">TDLR;</h2>
+<h2 id="tldr">TLDR;</h2>
 <ol>
 <li><p>Pack your source code into a tarball.</p>
 </li>
