@@ -1,7 +1,8 @@
 @def title = "A Perceptron from scratch with Julia"
 @def hascode = true
-@def tags = ["Machine Learnin", "Julia"]
+@def tags = ["Machine Learning", "Julia"]
 @def reeval = true
+@def published = "1 June 2022"
 
 # A Perceptron from scratch with Julia
 
